@@ -1,11 +1,11 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { getUrl } from '@/lib/store';
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { code: string } }
 ) {
-  const { code } = params;
+  const code = params.code;
   const entry = await getUrl(code);
 
   const clicks = entry ? entry.clicks : 1420;

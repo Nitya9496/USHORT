@@ -1,20 +1,19 @@
-import { NextRequest, NextResponse } from 'next/server';
+﻿import { NextRequest, NextResponse } from 'next/server';
 import { getUrl, incrementClick } from '@/lib/store';
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { code: string } }
 ) {
-  const { code } = params;
+  const code = params.code;
 
-  if (code.startsWith('api') || code.startsWith('_next') || code === 'favicon.ico') {
+  if (!code || code.startsWith('api') || code.startsWith('_next') || code === 'favicon.ico') {
     return NextResponse.next();
   }
 
   const entry = await getUrl(code);
 
-  if (entry) {
-    // Increment click asynchronously
+  if (entry && entry.originalUrl) {
     incrementClick(code).catch(() => {});
     return NextResponse.redirect(entry.originalUrl, 302);
   }
