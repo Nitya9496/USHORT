@@ -1,7 +1,7 @@
 {
-  "name": "ushort",
+  "name": "ushort-frontend",
   "version": "1.0.0",
-  "description": "uShort - Next-generation 3D URL Shortener with physics-based motion and glassmorphic telemetry",
+  "description": "uShort - Next-generation 3D URL Shortener with physics-based motion and glassmorphic analytics",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -17,7 +17,6 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.3.19",
     "lucide-react": "^0.414.0",
-    "nanoid": "^3.3.7",
     "next": "^14.2.5",
     "qrcode.react": "^3.1.0",
     "react": "^18.3.1",
